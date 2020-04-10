@@ -1,0 +1,9 @@
+Package: com.level3tjg.AutoHook
+Name: AutoHook
+Version: 0.0.1
+Description: 
+Section: Tweaks
+Depends: firmware (>= 11.0), mobilesubstrate
+Architecture: iphoneos-arm
+Author: level3tjg
+
