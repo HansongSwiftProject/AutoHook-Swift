@@ -1,6 +1,6 @@
 import Foundation
 
-public class AutoHookImplementor: NSObject{
+@objc public class AutoHookImplementor: NSObject{
     static func implementHooks(hookClass: AnyClass, targetClass: AnyClass){
         var methodCount: UInt32 = 0
         let methods = class_copyMethodList(hookClass, &methodCount)
@@ -65,7 +65,7 @@ public class AutoHookImplementor: NSObject{
         NSLog("AutoHook target: %@", targetClassStr)
         AutoHookImplementor.implementHooks(hookClass:hookClass, targetClass:targetClass as! AnyClass)
     }
-    @objc static func swiftInit(){
+    @objc public static func swiftInit(){
         //Call this in your constructor
         var classCount: UInt32 = 0
         let classes = objc_copyClassList(&classCount)
