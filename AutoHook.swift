@@ -1,3 +1,5 @@
+import Foundation
+
 public class AutoHookImplementor: NSObject{
     static func implementHooks(hookClass: AnyClass, targetClass: AnyClass){
         var methodCount: UInt32 = 0
@@ -28,7 +30,7 @@ public class AutoHookImplementor: NSObject{
                 }
                 let targetTypeEncoding = method_getTypeEncoding(targetMethod!)
                 let hookedTypeEncoding = method_getTypeEncoding(hookMethod)
-                if strcmp(targetTypeEncoding, hookedTypeEncoding) != 0{
+                if String(cString:targetTypeEncoding!) != String(cString:hookedTypeEncoding!){
                     return
                 }
                 let hookImp = method_getImplementation(hookMethod)
