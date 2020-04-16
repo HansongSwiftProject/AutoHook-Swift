@@ -72,7 +72,7 @@ import Foundation
         if (classes == nil){
             return
         }
-        for hookClass in (0..<Int(classCount)).map({classes![$0]}){
+        for hookClass in Array(UnsafeBufferPointer(start: classes, count: Int(classCount))){
             let hookClassStr = NSStringFromClass(hookClass)
             let classStrs = hookClassStr.split(separator:".")
             if classStrs.count > 1 && classStrs[1].hasPrefix("Hook"){
